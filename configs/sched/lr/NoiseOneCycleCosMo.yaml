@@ -1,0 +1,29 @@
+#Noise One Cycle Cos With cycle_momentum
+policy:
+  _target_: schedulers.NoiseLR
+  lr_sched: OneCycleLR
+  anneal_strategy: cos
+  epochs: ${nepoch}
+  div_factor: 40.0
+  final_div_factor: 0.1
+  last_epoch: -1
+  max_lr: ${lr}
+  cycle_momentum: true
+  base_momentum: 0.85
+  max_momentum: 0.95
+  pct_start: 0.1
+  noise_pct: 0.1
+  steps_per_epoch: ${sched.lr.steps_per_epoch}
+
+iter: true
+
+steps_per_epoch:
+  _target_: utils.FloorDiv
+  _args_:
+    - _target_: utils.CeilDiv
+      _args_:
+        - ${data.train_sample_size}
+        - _target_: builtins.len
+          _args_:
+            - ${gpus}
+    - ${train_batch_size}

@@ -1,0 +1,10 @@
+hydra:
+  run:
+    dir: outputs/${name}/${now:%Y-%m-%d_%H-%M-%S}
+  output_subdir: .
+  job:
+    chdir: false
+#  job_logging:
+#    handlers:
+#      file:
+#        filename: ${name}.log

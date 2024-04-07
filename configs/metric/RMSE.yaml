@@ -1,0 +1,2 @@
+_target_: criteria.RMSE
+mul_factor: ${data.mul_factor}

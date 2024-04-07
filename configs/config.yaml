@@ -1,0 +1,28 @@
+defaults:
+  - hydra
+  - optim: AdamW
+  - sched/lr: NoiseOneCycleCosMo
+  - data: KITTI
+  - net: PMP
+  - loss: MSMSE
+  - metric: RMSE
+  - _self_
+#
+
+nepoch: 30
+test_epoch: 25
+test_iter: 1000
+lr: 0.001
+gpus:
+  - 0
+train_batch_size: 2
+test_batch_size: 2
+num_workers: 4
+manual_seed: 1
+vis_iter: 100
+start_epoch: 0
+gpu_id: ???
+name: ???
+device:
+  _target_: torch.device
+  device: cuda:${gpu_id}

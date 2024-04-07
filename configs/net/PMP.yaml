@@ -1,0 +1,16 @@
+# Propagation Field Baseline Relu6 Clip EMA
+
+name: PMP
+
+model:
+  _target_: models.Pre_MF_Post
+
+
+ema:
+  _target_: models.EMA
+  decay: 0.9999
+
+
+clip:
+  _target_: utils.clip_grad_norm_
+  max_norm: 0.1

@@ -1,0 +1,38 @@
+mean:
+  - 117.
+  - 97.
+  - 91.
+std:
+  - 70.
+  - 71.
+  - 74.
+train_sample_size: 47584
+test_sample_size: 654
+height: 256
+width: 320
+
+
+trainset:
+  _target_: datasets.NYU
+  mode: 'train'
+  path: ${data.path}
+  num_sample: ${data.npoints}
+  mul_factor: ${data.mul_factor}
+  num_mask: ${data.num_mask}
+  scale_kcam: true
+
+
+testset:
+  _target_: datasets.NYU
+  mode: 'val'
+  path: ${data.path}
+  num_sample: ${data.npoints}
+  mul_factor: ${data.mul_factor}
+  num_mask: ${data.num_mask}
+  scale_kcam: false
+
+
+path: datas/nyu
+npoints: 500
+mul_factor: 10.0
+num_mask: 1

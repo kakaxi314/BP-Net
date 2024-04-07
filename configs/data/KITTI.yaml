@@ -1,0 +1,35 @@
+mean:
+  - 90.9950
+  - 96.2278
+  - 94.3213
+std:
+  - 79.2382
+  - 80.5267
+  - 82.1483
+train_sample_size: 85898
+test_sample_size: 1000
+height: 256
+width: 1216
+
+trainset:
+  _target_: datasets.KITTI
+  mode: 'train'
+  RandCrop: true
+  path: ${data.path}
+  height: ${data.height}
+  width: ${data.width}
+  mean: ${data.mean}
+  std: ${data.std}
+
+testset:
+  _target_: datasets.KITTI
+  mode: 'selval'
+  RandCrop: false
+  path: ${data.path}
+  height: ${data.height}
+  width: ${data.width}
+  mean: ${data.mean}
+  std: ${data.std}
+
+path: datas/kitti
+mul_factor: 1.0

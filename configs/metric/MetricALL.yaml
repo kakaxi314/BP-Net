@@ -1,0 +1,2 @@
+_target_: criteria.MetricALL
+mul_factor: ${data.mul_factor}
