@@ -152,7 +152,7 @@ If you find this work useful in your research, please consider citing:
 @article{BP-Net,
 title={Bilateral Propagation Network for Depth Completion},
 author={Tang, Jie and Tian, Fei-Peng and An, Boshi and Li, Jian and Tan, Ping},
-journal={arXiv preprint arXiv:2403.11270},
+journal={CVPR},
 year={2024}
 }
 ```
